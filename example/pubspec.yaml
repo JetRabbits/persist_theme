@@ -3,7 +3,7 @@ description: Demonstrates how to use the persist_theme plugin.
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: '>=2.19.4 <3.0.0'
 
 dependencies:
   flutter:
@@ -12,6 +12,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_lints: ^2.0.1
 
   persist_theme:
     path: ../

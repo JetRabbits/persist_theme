@@ -17,15 +17,20 @@ void main() {
 /// a supported platform (iOS for macOS, Android for Linux and Windows).
 /// Otherwise, do nothing.
 void _setTargetPlatformForDesktop() {
-  TargetPlatform targetPlatform;
+  late TargetPlatform targetPlatform;
   if (Platform.isMacOS) {
     targetPlatform = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
+  } else if (Platform.isLinux) {
+    targetPlatform = TargetPlatform.linux;
+  } else if (Platform.isWindows){
+    targetPlatform = TargetPlatform.windows;
+  } else if (Platform.isAndroid){
     targetPlatform = TargetPlatform.android;
   }
-  if (targetPlatform != null) {
-    debugDefaultTargetPlatformOverride = targetPlatform;
-  }
+
+
+  debugDefaultTargetPlatformOverride = targetPlatform;
+
 }
 
 class MyApp extends StatelessWidget {

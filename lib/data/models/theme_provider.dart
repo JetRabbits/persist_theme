@@ -8,9 +8,9 @@ class ThemeProvider extends StatelessWidget {
   final Widget child;
   final bool init;
   const ThemeProvider({
-    Key key,
-    @required this.model,
-    @required this.child,
+    Key? key,
+    /*required*/ required this.model,
+    /*required*/ required this.child,
     this.init = true,
   }) : super(key: key);
 

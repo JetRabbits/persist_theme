@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../persist_theme.dart';
-import 'picker.dart';
 
 class DarkAccentColorPicker extends StatelessWidget {
   const DarkAccentColorPicker({
@@ -13,7 +12,7 @@ class DarkAccentColorPicker extends StatelessWidget {
     this.showOnlyDarkMode = true,
   });
 
-  final Widget leading, subtitle, title;
+  final Widget? leading, subtitle, title;
   final String label;
   final bool showOnlyDarkMode;
 
