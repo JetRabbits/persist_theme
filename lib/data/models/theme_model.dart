@@ -79,27 +79,25 @@ class ThemeModel extends ChangeNotifier {
       case ThemeType.dark:
         return customDarkTheme ??
             ThemeData.dark().copyWith(
-              accentColor: darkAccentColor,
-            );
+                colorScheme: ThemeData.dark()
+                    .colorScheme
+                    .copyWith(secondary: darkAccentColor));
       case ThemeType.black:
         return customBlackTheme ??
             ThemeData.dark().copyWith(
-              scaffoldBackgroundColor: Colors.black,
-              backgroundColor: Colors.black,
-              bottomAppBarColor: Colors.black,
-              primaryColorDark: Colors.black,
-              accentColor: darkAccentColor,
-            );
+                colorScheme: ThemeData.dark().colorScheme.copyWith(
+                    background: Colors.black,
+                    primary: Colors.black,
+                    secondary: darkAccentColor));
       case ThemeType.custom:
         return customCustomTheme != null
             ? customCustomTheme!.copyWith(
-                primaryColor: primaryColor,
-                accentColor: accentColor,
-              )
+                colorScheme: customCustomTheme!.colorScheme
+                    .copyWith(primary: primaryColor, secondary: accentColor))
             : ThemeData.light().copyWith(
-                primaryColor: primaryColor,
-                accentColor: accentColor,
-              );
+                colorScheme: ThemeData.light()
+                    .colorScheme
+                    .copyWith(primary: primaryColor, secondary: accentColor));
       default:
         return customLightTheme ?? ThemeData.light().copyWith();
     }
@@ -116,16 +114,15 @@ class ThemeModel extends ChangeNotifier {
     if (_trueBlack) {
       return customBlackTheme ??
           ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: Colors.black,
-            backgroundColor: Colors.black,
-            bottomAppBarColor: Colors.black,
-            primaryColorDark: Colors.black,
-            accentColor: darkAccentColor,
+            colorScheme: ThemeData.dark()
+                .colorScheme
+                .copyWith(primary: Colors.black, secondary: darkAccentColor),
           );
     }
     return customDarkTheme ??
         ThemeData.dark().copyWith(
-          accentColor: darkAccentColor,
+          colorScheme:
+              ThemeData.dark().colorScheme.copyWith(secondary: darkAccentColor),
         );
   }
 
@@ -180,7 +177,7 @@ class ThemeModel extends ChangeNotifier {
 
   Color get accentColor {
     if (type == ThemeType.dark || type == ThemeType.black) {
-      return ThemeData.dark().accentColor;
+      return ThemeData.dark().colorScheme.secondary;
     }
 
     if (_customTheme) {

@@ -10,3 +10,8 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 pubspec.lock
+example/ios/Flutter
+example/macos/Flutter
+example/linux/flutter
+example/web
+pubspec.lock
